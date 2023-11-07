@@ -1,3 +1,6 @@
 ---
 Name: goldfinch-component-events
 ---
+Goldfinch\Component\Events\Admin\EventsAdmin:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BlocksAdminExtension
