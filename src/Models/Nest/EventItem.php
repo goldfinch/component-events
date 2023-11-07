@@ -39,6 +39,7 @@ class EventItem extends NestedObject
 
     private static $owns = [
         'Image',
+        'Categories',
     ];
 
     private static $summary_fields = [
