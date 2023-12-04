@@ -2,12 +2,14 @@
 
 namespace Goldfinch\Component\Events\Models\Nest;
 
-use Goldfinch\Component\Events\Pages\Nest\Events;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
-use Goldfinch\Component\Events\Models\Nest\EventCategory;
+use SilverStripe\Control\Director;
 use SilverStripe\TagField\TagField;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Component\Events\Admin\EventsAdmin;
+use Goldfinch\Component\Events\Pages\Nest\Events;
+use Goldfinch\Component\Events\Models\Nest\EventCategory;
 use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
 
 class EventItem extends NestedObject
@@ -85,6 +87,29 @@ class EventItem extends NestedObject
         );
 
         return $fields;
+    }
+
+    // TODO: check if SortOrder exists
+    public function nextItem()
+    {
+        return EventItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+    }
+
+    // TODO: check if SortOrder exists
+    public function previousItem()
+    {
+        return EventItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+    }
+
+    public function OtherItems()
+    {
+        return EventItem::get()->filter('ID:not', $this->ID)->limit(6);
+    }
+
+    public function CMSEditLink()
+    {
+        $admin = new EventsAdmin;
+        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
     }
 
     // public function validate()
