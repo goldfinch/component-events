@@ -89,19 +89,17 @@ class EventItem extends NestedObject
         return $fields;
     }
 
-    // TODO: check if SortOrder exists
-    public function nextItem()
+    public function getNextItem()
     {
         return EventItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
     }
 
-    // TODO: check if SortOrder exists
-    public function previousItem()
+    public function getPreviousItem()
     {
         return EventItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
     }
 
-    public function OtherItems()
+    public function getOtherItems()
     {
         return EventItem::get()->filter('ID:not', $this->ID)->limit(6);
     }
