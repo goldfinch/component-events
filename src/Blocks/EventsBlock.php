@@ -20,7 +20,7 @@ class EventsBlock extends BaseElement
 
     private static $inline_editable = false;
     private static $description = '';
-    private static $icon = 'bi-calendar-date';
+    private static $icon = 'font-icon-p-event-alt';
     // private static $disable_pretty_anchor_name = false;
     // private static $displays_title_in_template = true;
 

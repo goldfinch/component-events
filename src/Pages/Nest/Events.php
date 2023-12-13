@@ -10,5 +10,5 @@ class Events extends Nest
     private static $table_name = 'Events';
     private static $controller_name = EventsController::class;
 
-    private static $icon_class = 'bi-calendar-date';
+    private static $icon_class = 'font-icon-p-event-alt';
 }
