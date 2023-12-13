@@ -16,7 +16,7 @@ class EventsAdmin extends ModelAdmin
 
     private static $url_segment = 'events';
     private static $menu_title = 'Events';
-    private static $menu_icon_class = 'bi-calendar-date';
+    private static $menu_icon_class = 'font-icon-p-event-alt';
     // private static $menu_priority = -0.5;
 
     private static $managed_models = [
