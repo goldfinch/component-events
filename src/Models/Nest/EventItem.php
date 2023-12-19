@@ -86,6 +86,8 @@ class EventItem extends NestedObject
             ]
         );
 
+        $fields->dataFieldByName('Image')->setFolderName('events');
+
         return $fields;
     }
 
