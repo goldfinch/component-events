@@ -10,7 +10,7 @@ use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Component\Events\Admin\EventsAdmin;
 use Goldfinch\Component\Events\Pages\Nest\Events;
 use Goldfinch\Component\Events\Models\Nest\EventCategory;
-use Goldfinch\FocusPointExtra\Forms\UploadFieldWithExtra;
+use Goldfinch\ImageEditor\Forms\EditableUploadField;
 
 class EventItem extends NestedObject
 {
@@ -78,7 +78,7 @@ class EventItem extends NestedObject
         $fields->addFieldsToTab(
             'Root.Main',
             [
-                ...UploadFieldWithExtra::create('Image', 'Image', $fields, $this)->getFields(),
+                ...EditableUploadField::create('Image', 'Image', $fields, $this)->getFields(),
                 ...[
                     TextField::create('Title', 'Title'),
                     TagField::create('Categories', 'Categories', EventCategory::get())
