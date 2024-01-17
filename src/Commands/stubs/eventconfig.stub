@@ -1,0 +1,19 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-events"
+---
+Goldfinch\Component\Events\Models\Nest\EventItem:
+  extensions:
+    - {{ namespace }}\EventItemExtension
+
+Goldfinch\Component\Events\Models\Nest\EventCategory:
+  extensions:
+    - {{ namespace }}\EventCategoryExtension
+
+Goldfinch\Component\Events\Configs\EventConfig:
+  extensions:
+    - {{ namespace }}\EventConfigExtension
+
+Goldfinch\Component\Events\Blocks\EventsBlock:
+  extensions:
+    - {{ namespace }}\EventsBlockExtension
