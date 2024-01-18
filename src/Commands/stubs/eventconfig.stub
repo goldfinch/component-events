@@ -4,16 +4,16 @@ After: "goldfinch/component-events"
 ---
 Goldfinch\Component\Events\Models\Nest\EventItem:
   extensions:
-    - {{ namespace_root }}EventItemExtension
+    - {{ namespace_root_extensions }}EventItemExtension
 
 Goldfinch\Component\Events\Models\Nest\EventCategory:
   extensions:
-    - {{ namespace_root }}EventCategoryExtension
+    - {{ namespace_root_extensions }}EventCategoryExtension
 
 Goldfinch\Component\Events\Configs\EventConfig:
   extensions:
-    - {{ namespace_root }}EventConfigExtension
+    - {{ namespace_root_extensions }}EventConfigExtension
 
 Goldfinch\Component\Events\Blocks\EventsBlock:
   extensions:
-    - {{ namespace_root }}EventsBlockExtension
+    - {{ namespace_root_extensions }}EventsBlockExtension
