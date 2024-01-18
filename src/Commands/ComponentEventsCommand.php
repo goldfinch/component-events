@@ -39,9 +39,7 @@ class ComponentEventsCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'EventsBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find(
-            'templates:component-events',
-        );
+        $command = $this->getApplication()->find('templates:component-events');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

@@ -20,16 +20,16 @@ class EventsAdmin extends ModelAdmin
 
     private static $managed_models = [
         EventItem::class => [
-            'title'=> 'Events',
+            'title' => 'Events',
         ],
         EventCategory::class => [
-            'title'=> 'Categories',
+            'title' => 'Categories',
         ],
         EventsBlock::class => [
-            'title'=> 'Blocks',
+            'title' => 'Blocks',
         ],
         EventConfig::class => [
-            'title'=> 'Settings',
+            'title' => 'Settings',
         ],
     ];
 }

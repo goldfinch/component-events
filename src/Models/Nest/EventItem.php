@@ -37,10 +37,7 @@ class EventItem extends NestedObject
         'Image' => Image::class,
     ];
 
-    private static $owns = [
-        'Image',
-        'Categories',
-    ];
+    private static $owns = ['Image', 'Categories'];
 
     private static $summary_fields = [
         'Image.CMSThumbnail' => 'Image',
@@ -63,22 +60,31 @@ class EventItem extends NestedObject
 
     public function getNextItem()
     {
-        return EventItem::get()->filter(['SortOrder:LessThan' => $this->SortOrder])->Sort('SortOrder DESC')->first();
+        return EventItem::get()
+            ->filter(['SortOrder:LessThan' => $this->SortOrder])
+            ->Sort('SortOrder DESC')
+            ->first();
     }
 
     public function getPreviousItem()
     {
-        return EventItem::get()->filter(['SortOrder:GreaterThan' => $this->SortOrder])->first();
+        return EventItem::get()
+            ->filter(['SortOrder:GreaterThan' => $this->SortOrder])
+            ->first();
     }
 
     public function getOtherItems()
     {
-        return EventItem::get()->filter('ID:not', $this->ID)->limit(6);
+        return EventItem::get()
+            ->filter('ID:not', $this->ID)
+            ->limit(6);
     }
 
     public function CMSEditLink()
     {
-        $admin = new EventsAdmin;
-        return Director::absoluteBaseURL() . '/' . $admin->getCMSEditLinkForManagedDataObject($this);
+        $admin = new EventsAdmin();
+        return Director::absoluteBaseURL() .
+            '/' .
+            $admin->getCMSEditLinkForManagedDataObject($this);
     }
 }

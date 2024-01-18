@@ -4,18 +4,16 @@ Name: goldfinch-component-events
 Goldfinch\Component\Events\Admin\EventsAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
-
 ---
 Name: goldfinch-component-events-icon
 Only:
-  moduleexists: 'goldfinch/enchantment'
+  moduleexists: "goldfinch/enchantment"
 ---
-
 Goldfinch\Component\Events\Admin\EventsAdmin:
-  menu_icon_class: 'bi-calendar-date'
+  menu_icon_class: "bi-calendar-date"
 
 Goldfinch\Component\Events\Pages\Nest\Events:
-  icon_class: 'bi-calendar-date'
+  icon_class: "bi-calendar-date"
 
 Goldfinch\Component\Events\Blocks\EventsBlock:
-  icon: 'bi-calendar-date'
+  icon: "bi-calendar-date"
