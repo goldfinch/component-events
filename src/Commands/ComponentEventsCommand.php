@@ -16,34 +16,34 @@ class ComponentEventsCommand extends GeneratorCommand
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
-            'vendor:component-events-eventitem',
+            'vendor:component-events:eventitem',
         );
         $input = new ArrayInput(['name' => 'EventItem']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-events-eventcategory',
+            'vendor:component-events:eventcategory',
         );
         $input = new ArrayInput(['name' => 'EventCategory']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-events-eventconfig',
+            'vendor:component-events:eventconfig',
         );
         $input = new ArrayInput(['name' => 'EventConfig']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-events-eventsblock',
+            'vendor:component-events:eventsblock',
         );
         $input = new ArrayInput(['name' => 'EventsBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('templates:component-events');
+        $command = $this->getApplication()->find('vendor:component-events:templates');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('config:component-events');
+        $command = $this->getApplication()->find('vendor:component-events:config');
         $input = new ArrayInput(['name' => 'component-events']);
         $command->run($input, $output);
 

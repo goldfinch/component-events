@@ -9,10 +9,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 
-#[AsCommand(name: 'templates:component-events')]
+#[AsCommand(name: 'vendor:component-events:templates')]
 class ComponentEventsTemplatesCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'templates:component-events';
+    protected static $defaultName = 'vendor:component-events:templates';
 
     protected $description = 'Publish component-events templates into your theme folder';
 

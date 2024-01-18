@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Events\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-events-eventitem')]
+#[AsCommand(name: 'vendor:component-events:eventitem')]
 class EventItemExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-events-eventitem';
+    protected static $defaultName = 'vendor:component-events:eventitem';
 
     protected $description = 'Create EventItem extension';
 

@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Events\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'config:component-events')]
+#[AsCommand(name: 'vendor:component-events:config')]
 class ComponentEventsConfigCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'config:component-events';
+    protected static $defaultName = 'vendor:component-events:config';
 
     protected $description = 'Create component-events config';
 

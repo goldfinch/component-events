@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Events\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-events-eventcategory')]
+#[AsCommand(name: 'vendor:component-events:eventcategory')]
 class EventCategoryExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-events-eventcategory';
+    protected static $defaultName = 'vendor:component-events:eventcategory';
 
     protected $description = 'Create EventCategory extension';
 
