@@ -16,17 +16,13 @@ class EventsBlock extends BaseElement
     private static $singular_name = 'Events';
     private static $plural_name = 'Events';
 
-    private static $db = [
-        // 'BlockTitle' => 'Varchar',
-        // 'BlockSubTitle' => 'Varchar',
-        // 'BlockText' => 'HTMLText',
-    ];
+    private static $db = [];
 
     private static $inline_editable = false;
     private static $description = '';
     private static $icon = 'font-icon-p-event-alt';
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         // ..
     }

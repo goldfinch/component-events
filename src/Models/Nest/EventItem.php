@@ -43,7 +43,7 @@ class EventItem extends NestedObject
         'Image.CMSThumbnail' => 'Image',
     ];
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         $harvest->require(['Title']);
 
