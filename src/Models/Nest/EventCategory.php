@@ -5,6 +5,7 @@ namespace Goldfinch\Component\Events\Models\Nest;
 use Goldfinch\Harvest\Harvest;
 use SilverStripe\Forms\TextField;
 use Goldfinch\Nest\Models\NestedObject;
+use Goldfinch\Harvest\Traits\HarvestTrait;
 
 class EventCategory extends NestedObject
 {
