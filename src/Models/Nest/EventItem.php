@@ -22,7 +22,9 @@ class EventItem extends NestedObject
     private static $singular_name = 'event';
     private static $plural_name = 'events';
 
-    private static $db = [];
+    private static $db = [
+        'Content' => 'HTMLText',
+    ];
 
     private static $many_many = [
         'Categories' => EventCategory::class,
@@ -51,6 +53,7 @@ class EventItem extends NestedObject
         $harvest->fields([
             'Root.Main' => [
                 $harvest->string('Title'),
+                $harvest->html('Content'),
                 $harvest->tag('Categories'),
                 ...$harvest->media('Image'),
             ],
