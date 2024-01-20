@@ -9,6 +9,7 @@ use Goldfinch\Nest\Models\NestedObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
 use Goldfinch\Component\Events\Admin\EventsAdmin;
 use Goldfinch\Component\Events\Pages\Nest\Events;
+use Goldfinch\Component\Events\Configs\EventConfig;
 
 class EventItem extends NestedObject
 {
@@ -56,6 +57,12 @@ class EventItem extends NestedObject
         ]);
 
         $harvest->dataField('Image')->setFolderName('events');
+
+        $cfg = EventConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            $harvest->remove('Categories');
+        }
     }
 
     public function getNextItem()

@@ -32,4 +32,25 @@ class EventsAdmin extends ModelAdmin
             'title' => 'Settings',
         ],
     ];
+
+    public function getManagedModels()
+    {
+        $models = parent::getManagedModels();
+
+        $cfg = EventConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($models[EventCategory::class]);
+        }
+
+        if (!class_exists('DNADesign\Elemental\Models\BaseElement')) {
+            unset($models[EventsBlock::class]);
+        }
+
+        if (empty($cfg->config('db')->db)) {
+            unset($models[EventConfig::class]);
+        }
+
+        return $models;
+    }
 }
