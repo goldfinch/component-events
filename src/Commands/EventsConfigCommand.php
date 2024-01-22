@@ -6,17 +6,17 @@ use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
 #[AsCommand(name: 'vendor:component-events:config')]
-class ComponentEventsConfigCommand extends GeneratorCommand
+class EventsConfigCommand extends GeneratorCommand
 {
     protected static $defaultName = 'vendor:component-events:config';
 
-    protected $description = 'Create component-events config';
+    protected $description = 'Create Events YML config';
 
     protected $path = 'app/_config';
 
-    protected $type = 'component-events yml config';
+    protected $type = 'config';
 
-    protected $stub = 'eventconfig.stub';
+    protected $stub = './stubs/config.stub';
 
     protected $extension = '.yml';
 

@@ -1,0 +1,34 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-events"
+---
+Goldfinch\Component\Events\Admin\EventsAdmin:
+  # menu_icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}EventsAdminExtension
+
+Goldfinch\Component\Events\Pages\Nest\Events:
+  # icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}EventsExtension
+
+Goldfinch\Component\Events\Controllers\Nest\EventsController:
+  extensions:
+    - {{ namespace_root_extensions }}EventsControllerExtension
+
+Goldfinch\Component\Events\Configs\EventConfig:
+  extensions:
+    - {{ namespace_root_extensions }}EventConfigExtension
+
+Goldfinch\Component\Events\Blocks\EventsBlock:
+  # icon: ""
+  extensions:
+    - {{ namespace_root_extensions }}EventsBlockExtension
+
+Goldfinch\Component\Events\Models\Nest\EventItem:
+  extensions:
+    - {{ namespace_root_extensions }}EventItemExtension
+
+Goldfinch\Component\Events\Models\Nest\EventCategory:
+  extensions:
+    - {{ namespace_root_extensions }}EventCategoryExtension

@@ -5,10 +5,10 @@ namespace Goldfinch\Component\Events\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-events:eventsblock')]
+#[AsCommand(name: 'vendor:component-events:ext:block')]
 class EventsBlockExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-events:eventsblock';
+    protected static $defaultName = 'vendor:component-events:ext:block';
 
     protected $description = 'Create EventsBlock extension';
 
@@ -16,7 +16,7 @@ class EventsBlockExtensionCommand extends GeneratorCommand
 
     protected $type = 'component-events block extension';
 
-    protected $stub = 'eventsblock-extension.stub';
+    protected $stub = './stubs/eventsblock-extension.stub';
 
     protected $prefix = 'Extension';
 
