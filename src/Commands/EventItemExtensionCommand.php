@@ -14,7 +14,7 @@ class EventItemExtensionCommand extends GeneratorCommand
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-events item extension';
+    protected $type = 'extension';
 
     protected $stub = './stubs/eventitem-extension.stub';
 
