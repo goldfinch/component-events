@@ -2,15 +2,15 @@
 
 namespace Goldfinch\Component\Events\Blocks;
 
-use Goldfinch\Harvest\Harvest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Fielder;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Events\Models\Nest\EventItem;
 use Goldfinch\Component\Events\Models\Nest\EventCategory;
 
 class EventsBlock extends BaseElement
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'EventsBlock';
     private static $singular_name = 'Events';
@@ -22,7 +22,7 @@ class EventsBlock extends BaseElement
     private static $description = '';
     private static $icon = 'font-icon-p-event-alt';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
         // ..
     }
