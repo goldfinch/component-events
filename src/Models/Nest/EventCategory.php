@@ -29,6 +29,10 @@ class EventCategory extends NestedObject
         'Items' => EventItem::class,
     ];
 
+    private static $searchableListFields = [
+        'Title', 'Content',
+    ];
+
     public function fielder(Fielder $fielder): void
     {
         $fielder->require(['Title']);
