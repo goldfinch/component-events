@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-events-harvest
+After: "goldfinch/harvest"
+---
+Goldfinch\Harvest\Harvest:
+  harvesters:
+    events: Goldfinch\Component\Events\Harvest\EventsHarvest

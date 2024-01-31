@@ -22,8 +22,10 @@ class EventsTemplatesCommand extends GeneratorCommand
 
         if (is_string($theme)) {
 
-            $componentPath = BASE_PATH . '/vendor/goldfinch/component-events/templates/Goldfinch/Component/Events/';
-            $themePath = 'themes/' . $theme . '/templates/Goldfinch/Component/Events/';
+            $componentPathTemplates = BASE_PATH . '/vendor/goldfinch/component-events/templates/';
+            $componentPath = $componentPathTemplates . 'Goldfinch/Component/Events/';
+            $themeTemplates = 'themes/' . $theme . '/templates/';
+            $themePath = $themeTemplates . 'Goldfinch/Component/Events/';
 
             $files = [
                 [
@@ -35,8 +37,28 @@ class EventsTemplatesCommand extends GeneratorCommand
                     'to' => $themePath . 'Models/Nest/EventItem.ss',
                 ],
                 [
+                    'from' => $componentPath . 'Models/Nest/EventCategory.ss',
+                    'to' => $themePath . 'Models/Nest/EventCategory.ss',
+                ],
+                [
                     'from' => $componentPath . 'Pages/Nest/Events.ss',
                     'to' => $themePath . 'Pages/Nest/Events.ss',
+                ],
+                [
+                    'from' => $componentPath . 'Pages/Nest/EventsByCategory.ss',
+                    'to' => $themePath . 'Pages/Nest/EventsByCategory.ss',
+                ],
+                [
+                    'from' => $componentPath . 'Partials/EventFilter.ss',
+                    'to' => $themePath . 'Partials/EventFilter.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Events/Models/Nest/EventCategory.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Events/Models/Nest/EventCategory.ss',
+                ],
+                [
+                    'from' => $componentPathTemplates . 'Loadable/Goldfinch/Component/Events/Models/Nest/EventItem.ss',
+                    'to' => $themeTemplates . 'Loadable/Goldfinch/Component/Events/Models/Nest/EventItem.ss',
                 ],
             ];
 

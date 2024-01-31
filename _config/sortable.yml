@@ -1,6 +1,10 @@
 ---
 Name: goldfinch-component-events-sortable
 ---
+Goldfinch\Component\Events\Models\Nest\EventItem:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
+
 Goldfinch\Component\Events\Models\Nest\EventCategory:
   extensions:
     - Goldfinch\Helpers\Extensions\DataObjectSortable

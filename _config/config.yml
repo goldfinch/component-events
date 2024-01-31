@@ -15,5 +15,8 @@ Goldfinch\Component\Events\Admin\EventsAdmin:
 Goldfinch\Component\Events\Pages\Nest\Events:
   icon_class: "bi-calendar-date"
 
+Goldfinch\Component\Events\Pages\Nest\EventsByCategory:
+  icon_class: "bi-calendar"
+
 Goldfinch\Component\Events\Blocks\EventsBlock:
   icon: "bi-calendar-date"

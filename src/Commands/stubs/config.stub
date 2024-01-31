@@ -13,6 +13,9 @@ Goldfinch\Component\Events\Pages\Nest\Events:
   extensions:
     - {{ namespace_root_extensions }}EventsExtension
 
+Goldfinch\Component\Events\Pages\Nest\EventsByCategory:
+  # icon_class: ""
+
 Goldfinch\Component\Events\Controllers\Nest\EventsController:
   extensions:
     - {{ namespace_root_extensions }}EventsControllerExtension

@@ -1,0 +1,10 @@
+---
+Name: goldfinch-component-events-mill
+After: "goldfinch/mill"
+---
+Goldfinch\Mill\Mill:
+  millable:
+    Goldfinch\Component\Events\Mills\EventsMill: Goldfinch\Component\Events\Pages\Nest\Events
+    Goldfinch\Component\Events\Mills\EventsByCategoryMill: Goldfinch\Component\Events\Pages\Nest\EventsByCategory
+    Goldfinch\Component\Events\Mills\EventCategoryMill: Goldfinch\Component\Events\Models\Nest\EventCategory
+    Goldfinch\Component\Events\Mills\EventItemMill: Goldfinch\Component\Events\Models\Nest\EventItem

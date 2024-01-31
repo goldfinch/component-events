@@ -63,7 +63,9 @@ class EventsSetCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'component-events']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-events:templates');
+        $command = $this->getApplication()->find(
+            'vendor:component-events:templates',
+        );
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
