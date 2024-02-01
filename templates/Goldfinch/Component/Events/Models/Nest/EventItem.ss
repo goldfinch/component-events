@@ -6,11 +6,15 @@
     <% end_with %>
 <% end_if %>
 
-<% if Categories %>
-    <div>Categories:
-        <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
-    </div>
+<% if not EventConfig.DisabledCategories %>
+  <% if Categories %>
+      <div>Categories:
+          <% loop Categories %><% if not IsFirst %>, <% end_if %><a href="{$Link}">$Title</a><% end_loop %>
+      </div>
+  <% end_if %>
 <% end_if %>
+
+<div>Date: $DateForHuman ($Date.Ago)</div>
 
 <div style="margin: 1rem 0">$Content</div>
 

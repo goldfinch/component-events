@@ -29,7 +29,11 @@ class EventCategory extends NestedObject
         'Items' => EventItem::class,
     ];
 
-    private static $searchableListFields = [
+    private static $summary_fields = [
+        'Items.Count' => 'Events',
+    ];
+
+    private static $searchable_list_fields = [
         'Title', 'Content',
     ];
 

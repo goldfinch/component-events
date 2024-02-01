@@ -30,7 +30,9 @@ class EventItem extends NestedObject
     private static $plural_name = 'events';
 
     private static $db = [
+        'Summary' => 'Text',
         'Content' => 'HTMLText',
+        'Date' => 'Datetime',
     ];
 
     private static $many_many = [
@@ -50,12 +52,43 @@ class EventItem extends NestedObject
     private static $owns = ['Image', 'Categories'];
 
     private static $summary_fields = [
-        'Image.CMSThumbnail' => 'Image',
+        'Date' => 'Date', // sortable
+        'Categories.Count' => 'Categories',
     ];
 
-    private static $searchableListFields = [
-        'Title', 'Content',
+    private static $searchable_list_fields = [
+        'Title', 'Summary', 'Content',
     ];
+
+    private static $default_sort = 'Date DESC, Created DESC';
+
+    public function GridItemSummaryList()
+    {
+        $list = parent::GridItemSummaryList();
+
+        $list['Image'] = $this->Image()->CMSThumbnail();
+        $list['Date'] = $this->DateForHuman() . ' <span style="font-style: italic">(' . $this->dbObject('Date')->Ago() . ')</span>';
+
+        return $list;
+    }
+
+    public function summaryFields()
+    {
+        $fields = parent::summaryFields();
+
+        $cfg = EventConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($fields['Categories.Count']);
+        }
+
+        return $fields;
+    }
+
+    public function DateForHuman()
+    {
+        return $this->Date ? $this->dbObject('Date')->Format("d MMMM YYYY, HH:mm") : null;
+    }
 
     public function fielder(Fielder $fielder): void
     {
@@ -64,6 +97,8 @@ class EventItem extends NestedObject
         $fielder->fields([
             'Root.Main' => [
                 $fielder->string('Title'),
+                $fielder->datetime('Date', 'Date', $this->Date ?? date('Y-m-d H:i:s')),
+                $fielder->text('Summary'),
                 $fielder->html('Content'),
                 $fielder->tag('Categories'),
                 ...$fielder->media('Image'),
@@ -118,11 +153,15 @@ class EventItem extends NestedObject
     {
         $list = parent::listExtraFilter($list, $request);
 
+        $filter = [];
+
         if ($request->getVar('category'))
         {
-            $list = $list->filter([
-                'Categories.URLSegment' => $request->getVar('category'),
-            ]);
+            $filter['Categories.URLSegment'] = $request->getVar('category');
+        }
+
+        if (count($filter)) {
+            $list = $list->filter($filter);
         }
 
         return $list;
@@ -137,11 +176,15 @@ class EventItem extends NestedObject
 
         if ($data && !empty($data))
         {
+            $filter = [];
+
             if (isset($data['urlparams']['category']) && $data['urlparams']['category']) {
 
-                $list = $list->filter([
-                    'Categories.URLSegment' => $data['urlparams']['category'],
-                ]);
+                $filter['Categories.URLSegment'] = $data['urlparams']['category'];
+            }
+
+            if (count($filter)) {
+                $list = $list->filter($filter);
             }
         }
 
