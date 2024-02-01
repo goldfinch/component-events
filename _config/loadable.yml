@@ -5,11 +5,21 @@ After: "goldfinch/loadable"
 Goldfinch\Loadable\Loadable:
   loadable:
     Goldfinch\Component\Events\Models\Nest\EventItem:
-      initial_loaded: 10
-      per_each_load: 10
+      # initial_loaded: 10
+      # per_each_load: 10
+      dbconfig:
+        Goldfinch\Component\Events\Configs\EventConfig:
+          initial_loaded: ItemsPerPage
+          per_each_load: ItemsPerPage
+      bridge:
+        Goldfinch\Component\Events\Models\Nest\EventCategory: List
     Goldfinch\Component\Events\Models\Nest\EventCategory:
-      initial_loaded: 10
-      per_each_load: 10
+      # initial_loaded: 10
+      # per_each_load: 10
+      dbconfig:
+        Goldfinch\Component\Events\Configs\EventConfig:
+          initial_loaded: ItemsPerPage
+          per_each_load: ItemsPerPage
 
 Goldfinch\Component\Events\Models\Nest\EventItem:
   extensions:

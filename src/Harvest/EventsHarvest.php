@@ -25,7 +25,7 @@ class EventsHarvest extends Harvest
 
         EventCategory::mill(5)->make();
 
-        EventItem::mill(20)->make()->each(function($item) {
+        EventItem::mill(30)->make()->each(function($item) {
             $categories = EventCategory::get()->shuffle()->limit(rand(0,4));
 
             foreach ($categories as $category) {
