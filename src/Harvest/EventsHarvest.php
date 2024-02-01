@@ -3,7 +3,9 @@
 namespace Goldfinch\Component\Events\Harvest;
 
 use Goldfinch\Harvest\Harvest;
+use Goldfinch\Blocks\Pages\Blocks;
 use Goldfinch\Component\Events\Pages\Nest\Events;
+use Goldfinch\Component\Events\Blocks\EventsBlock;
 use Goldfinch\Component\Events\Models\Nest\EventItem;
 use Goldfinch\Component\Events\Models\Nest\EventCategory;
 use Goldfinch\Component\Events\Pages\Nest\EventsByCategory;
@@ -32,5 +34,19 @@ class EventsHarvest extends Harvest
                 $item->Categories()->add($category);
             }
         });
+
+        // add one block to Blocks demo page (if it's exists)
+        if (class_exists(Blocks::class)) {
+            $demoBlocks = Blocks::get()->filter('Title', 'Blocks')->first();
+
+            if ($demoBlocks && $demoBlocks->exists() && $demoBlocks->ElementalArea()->exists()) {
+                EventsBlock::mill(1)->make([
+                    'ClassName' => $demoBlocks->ClassName,
+                    'TopPageID' => $demoBlocks->ID,
+                    'ParentID' => $demoBlocks->ElementalArea()->ID,
+                    'Title' => 'Events',
+                ]);
+            }
+        }
     }
 }

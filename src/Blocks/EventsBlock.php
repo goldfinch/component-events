@@ -3,6 +3,7 @@
 namespace Goldfinch\Component\Events\Blocks;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Events\Models\Nest\EventItem;
@@ -10,7 +11,7 @@ use Goldfinch\Component\Events\Models\Nest\EventCategory;
 
 class EventsBlock extends BaseElement
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'EventsBlock';
     private static $singular_name = 'Events';

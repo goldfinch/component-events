@@ -8,3 +8,4 @@ Goldfinch\Mill\Mill:
     Goldfinch\Component\Events\Mills\EventsByCategoryMill: Goldfinch\Component\Events\Pages\Nest\EventsByCategory
     Goldfinch\Component\Events\Mills\EventCategoryMill: Goldfinch\Component\Events\Models\Nest\EventCategory
     Goldfinch\Component\Events\Mills\EventItemMill: Goldfinch\Component\Events\Models\Nest\EventItem
+    Goldfinch\Component\Events\Mills\EventsBlockMill: Goldfinch\Component\Events\Blocks\EventsBlock
