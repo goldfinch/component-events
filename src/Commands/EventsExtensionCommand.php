@@ -17,5 +17,5 @@ class EventsExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/events-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }

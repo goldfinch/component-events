@@ -17,5 +17,5 @@ class EventItemExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/eventitem-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }
