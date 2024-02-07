@@ -17,57 +17,32 @@ class EventsSetCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:admin',
-        );
-        $input = new ArrayInput(['name' => 'EventsAdmin']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:admin');
+        $command->run(new ArrayInput(['name' => 'EventsAdmin']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:config',
-        );
-        $input = new ArrayInput(['name' => 'EventConfig']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:config');
+        $command->run(new ArrayInput(['name' => 'EventConfig']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'EventsBlock']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:block');
+        $command->run(new ArrayInput(['name' => 'EventsBlock']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:page',
-        );
-        $input = new ArrayInput(['name' => 'Events']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:page');
+        $command->run(new ArrayInput(['name' => 'Events']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:controller',
-        );
-        $input = new ArrayInput(['name' => 'EventsController']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:controller');
+        $command->run(new ArrayInput(['name' => 'EventsController']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:item',
-        );
-        $input = new ArrayInput(['name' => 'EventItem']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:item');
+        $command->run(new ArrayInput(['name' => 'EventItem']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:ext:category',
-        );
-        $input = new ArrayInput(['name' => 'EventCategory']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:ext:category');
+        $command->run(new ArrayInput(['name' => 'EventCategory']), $output);
 
         $command = $this->getApplication()->find('vendor:component-events:config');
-        $input = new ArrayInput(['name' => 'component-events']);
-        $command->run($input, $output);
+        $command->run(new ArrayInput(['name' => 'component-events']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-events:templates',
-        );
-        $input = new ArrayInput([]);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-events:templates');
+        $command->run(new ArrayInput([]), $output);
 
         return Command::SUCCESS;
     }
