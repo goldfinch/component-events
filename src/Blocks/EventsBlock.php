@@ -2,11 +2,11 @@
 
 namespace Goldfinch\Component\Events\Blocks;
 
-use Goldfinch\Blocks\Models\BlockElement;
+use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\Events\Models\Nest\EventItem;
 use Goldfinch\Component\Events\Models\Nest\EventCategory;
 
-class EventsBlock extends BlockElement
+class EventsBlock extends BaseElement
 {
     private static $table_name = 'EventsBlock';
     private static $singular_name = 'Events';
@@ -15,7 +15,7 @@ class EventsBlock extends BlockElement
     private static $db = [];
 
     private static $inline_editable = false;
-    private static $description = '';
+    private static $description = 'Events block handler';
     private static $icon = 'font-icon-p-event-alt';
 
     public function Items()

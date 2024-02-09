@@ -4,6 +4,10 @@ Name: goldfinch-component-events
 Goldfinch\Component\Events\Admin\EventsAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+Goldfinch\Component\Events\Blocks\EventsBlock:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BaseElementExtension
 ---
 Name: goldfinch-component-events-icon
 Only:
