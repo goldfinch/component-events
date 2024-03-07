@@ -2,14 +2,12 @@
 
 namespace Goldfinch\Component\Events\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Control\Director;
 use Goldfinch\Mill\Traits\Millable;
 use SilverStripe\Control\HTTPRequest;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Events\Admin\EventsAdmin;
 use Goldfinch\Component\Events\Pages\Nest\Events;
 use Goldfinch\Component\Events\Configs\EventConfig;
@@ -18,7 +16,7 @@ use Goldfinch\Component\Events\Models\Nest\EventCategory;
 
 class EventItem extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -90,8 +88,12 @@ class EventItem extends NestedObject
         return $this->Date ? $this->dbObject('Date')->Format("d MMMM YYYY, HH:mm") : null;
     }
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
@@ -112,6 +114,8 @@ class EventItem extends NestedObject
         if ($cfg->DisabledCategories) {
             $fielder->remove('Categories');
         }
+
+        return $fields;
     }
 
     // type : mix | inside | outside

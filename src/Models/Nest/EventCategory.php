@@ -2,18 +2,16 @@
 
 namespace Goldfinch\Component\Events\Models\Nest;
 
-use Goldfinch\Fielder\Fielder;
 use Goldfinch\Mill\Traits\Millable;
 use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Controller;
 use Goldfinch\Nest\Models\NestedObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\Events\Configs\EventConfig;
 use Goldfinch\Component\Events\Pages\Nest\EventsByCategory;
 
 class EventCategory extends NestedObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     public static $nest_up = null;
     public static $nest_up_children = [];
@@ -40,8 +38,12 @@ class EventCategory extends NestedObject
         'Title', 'Content',
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
@@ -50,6 +52,8 @@ class EventCategory extends NestedObject
                 $fielder->html('Content'),
             ],
         ]);
+
+        return $fields;
     }
 
     public function List()
