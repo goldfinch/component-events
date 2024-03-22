@@ -53,6 +53,8 @@ class EventCategory extends NestedObject
             ],
         ]);
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 

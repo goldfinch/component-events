@@ -115,6 +115,8 @@ class EventItem extends NestedObject
             $fielder->remove('Categories');
         }
 
+        $this->extend('updateCMSFields', $fields);
+
         return $fields;
     }
 
